@@ -1,0 +1,47 @@
+@import '../../sass/variables.scss';
+/**
+ * @prop --button-font-family: Font family of the button text
+ * @prop --button-cursor: The mouse cursor for the button (default: pointer)
+ * @prop --button-border: The border for the button (default: none)
+ * @prop --button-bg-color: The background color for the button (default: primary)
+ * @prop --button-color: The color of the button text (default: white)
+ * @prop --button-line-height: Line height of the button (default: 20px)
+ * @prop --button-font-size: Font size of the button (default: 14px)
+ * @prop --button-padding: Padding of the button (default: 4px 12px)
+ * @prop --button-border-radius: Border radius for the button (default: 3px)
+ * @prop --button-hover-bg-color: Background color in hover state (default: primary-dark)
+ * @prop --button-active-bg-color: Background color in active state (default: primary-dark)
+ * @prop --button-disabled-opacity: Opacity of button in disabled state (default: 0.4)
+ */
+
+:host {
+    box-sizing: border-box;
+}
+  
+:host([disabled]) {
+    pointer-events: none;
+}
+  
+button {
+    font-family: var(--button-font-family, var(--bui-font-family, #{$font-family}));
+    cursor: var(--button-cursor, pointer);
+    border: var(--button-border, none);
+    background-color: var(--button-bg-color, var(--bui-color-primary, #{$color-primary}));
+    color: var(--button-color, var(--bui-color-white, #{$white}));
+    line-height: var(--button-line-height, 20px);
+    font-size: var(--button-font-size, 14px);
+    padding: var(--button-padding, 4px 12px);
+    border-radius: var(--button-border-radius, 3px);
+  
+    &:hover {
+      background-color: var(--button-hover-bg-color, var(--bui-color-primary-dark, #{$color-primary-dark}));
+    }
+
+    &:active {
+      background-color: var(--button-active-bg-color, darken($color-primary-dark, 5%));
+    }
+
+    &:disabled {
+      opacity: var(--button-disabled-opacity, 0.4);
+    }
+}
