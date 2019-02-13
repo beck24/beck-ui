@@ -3,6 +3,7 @@
  * @prop --button-font-family: Font family of the button text
  * @prop --button-cursor: The mouse cursor for the button (default: pointer)
  * @prop --button-border: The border for the button (default: none)
+ * @prop --button-border-width: The border width (default: 2px)
  * @prop --button-bg-color: The background color for the button (default: primary)
  * @prop --button-color: The color of the button text (default: white)
  * @prop --button-line-height: Line height of the button (default: 20px)
@@ -22,26 +23,49 @@
     pointer-events: none;
 }
   
-button {
+.bui-button {
+    display: inline-block;
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    outline: 0;
+    appearance: none;
+    user-select: none;
     font-family: var(--button-font-family, var(--bui-font-family, #{$font-family}));
+    text-decoration: none;
     cursor: var(--button-cursor, pointer);
-    border: var(--button-border, none);
+    border: var(--button-border, 2px solid var(--button-bg-color, var(--bui-color-primary, #{$color-primary})));
+    border-width: var(--button-border-width, 2px);
     background-color: var(--button-bg-color, var(--bui-color-primary, #{$color-primary}));
     color: var(--button-color, var(--bui-color-white, #{$white}));
     line-height: var(--button-line-height, 20px);
     font-size: var(--button-font-size, 14px);
-    padding: var(--button-padding, 4px 12px);
+    padding: var(--button-padding, 2px 10px);
     border-radius: var(--button-border-radius, 3px);
   
     &:hover {
       background-color: var(--button-hover-bg-color, var(--bui-color-primary-dark, #{$color-primary-dark}));
+      border-color: var(--button-hover-bg-color, var(--bui-color-primary-dark, #{$color-primary-dark}));
     }
 
     &:active {
       background-color: var(--button-active-bg-color, darken($color-primary-dark, 5%));
     }
 
-    &:disabled {
+    &.disabled {
       opacity: var(--button-disabled-opacity, 0.4);
+      pointer-events: none;
+    }
+
+    &.outline {
+        background-color: transparent;
+        color: var(--button-bg-color, var(--bui-color-primary, #{$color-primary}));
+    }
+
+    &.block {
+        display: block;
+        width: 100%;
     }
 }

@@ -14,15 +14,39 @@ export namespace Components {
 
   interface BuiButton {
     /**
+    * Extend the button the full width of the container
+    */
+    'block': boolean;
+    /**
     * Whether the button is disabled
     */
     'disabled': boolean;
+    /**
+    * Link href
+    */
+    'href': string;
+    /**
+    * Display as outline button
+    */
+    'outline': boolean;
   }
   interface BuiButtonAttributes extends StencilHTMLAttributes {
+    /**
+    * Extend the button the full width of the container
+    */
+    'block'?: boolean;
     /**
     * Whether the button is disabled
     */
     'disabled'?: boolean;
+    /**
+    * Link href
+    */
+    'href'?: string;
+    /**
+    * Display as outline button
+    */
+    'outline'?: boolean;
   }
 
   interface MyComponent {
